@@ -5,17 +5,14 @@ class Ability
 
     user ||= User.new # guest user (not logged in)
 
+    # define roles
     can :do_as_superadmin, :all if user.role == 'superadmin'
     can :do_as_admin, :all if user.role == 'superadmin'
     can :do_as_admin, :all if user.role =='admin'
     can :do_as_instructor, :all if user.role == 'instructor'
     can :do_as_student, :all if user.role =='student'
 
-    # if user.role == 'admin'
-    # cannot :destroy, User, id: user.id
-    # else
-    #   can :destroy, User
-    # end
+    # admin can not destroy self
    case user.role
      when 'admin'
        cannot :destroy, User do |x|

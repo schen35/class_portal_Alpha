@@ -6,11 +6,9 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-
     @courses = Course.search(params[:search])
     @user_id = session[:user_id]
     puts @user_id
-
   end
 
   # GET /courses/1
