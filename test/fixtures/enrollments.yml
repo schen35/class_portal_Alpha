@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: 1
+  instructor_id: 1
+  course_id: 1
+  grade: 1.5
+  material: MyText
+  admission: false
+
+two:
+  student_id: 1
+  instructor_id: 1
+  course_id: 1
+  grade: 1.5
+  material: MyText
+  admission: false

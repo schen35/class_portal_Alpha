@@ -1,0 +1,41 @@
+<div class="container row col-md-4 col-md-offset-4" style="left: 0%; top: 70px;">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Listing Enrollments</h1>
+
+  <table border="4">
+    <thead>
+    <tr>
+      <th>Student id</th>
+      <th>Instructor id</th>
+      <th>Course id</th>
+      <th>Grade</th>
+      <th>Material</th>
+      <th>Admission</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% userid= @user_id.id%>
+    <% @instructor_enrollment = @enrollments.where('"enrollments"."instructor_id" = ?', "#{userid}") %>
+    <% @instructor_enrollment.each do |enrollment| %>
+        <tr>
+          <td><%= enrollment.student_id %></td>
+          <td><%= enrollment.instructor_id %></td>
+          <td><%= enrollment.course_id %></td>
+          <td><%= enrollment.grade %></td>
+          <td><%= enrollment.material %></td>
+          <td><%= enrollment.admission %></td>
+          <td><%= link_to 'Show', enrollment %></td>
+          <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
+          <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Enrollment', new_enrollment_path %>
+</div>

@@ -1,0 +1,54 @@
+  <div class="container row col-lg-12 col-md-12 col-sm-12" >
+<%= form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @course.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+        <fieldset>
+  <div class="field">
+    <%= f.label :Course_num %><br>
+    <%= f.number_field :Course_num %>
+  </div>
+  <div class="field">
+    <%= f.label :Title %><br>
+    <%= f.text_field :Title %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_area :Description %>
+    <!-- <%= f.text_area :Description, :value =>"something" %>-->
+  </div>
+          </fieldset>
+        <fieldset>
+  <div class="field">
+    <%= f.label :Instructor %><br>
+    <%= f.text_field :Instructor %>
+  </div>
+  <div class="field">
+    <%= f.label :Start_date %><br>
+    <%= f.date_select :Start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :End_date %><br>
+    <%= f.date_select :End_date %>
+  </div>
+  <div class="field">
+    <%= f.label :Status %>
+    <%= f.check_box :Status %>
+  </div>
+          </fieldset>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+<% end %>
+</div>

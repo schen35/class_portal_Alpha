@@ -1,0 +1,40 @@
+<div class="container row col-md-4 col-md-offset-4" style="left: 0%; top: 70px;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student id:</strong>
+  <%= @enrollment.student_id %>
+</p>
+
+<p>
+  <strong>Instructor id:</strong>
+  <%= @enrollment.instructor_id %>
+</p>
+
+<p>
+  <strong>Course id:</strong>
+  <%= @enrollment.course_id %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @enrollment.grade %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @enrollment.material %>
+</p>
+
+<p>
+  <strong>Admission:</strong>
+  <%= @enrollment.admission %>
+</p>
+
+  <%= link_to 'Edit', edit_enrollment_path(@enrollment) %>
+  <% if can? :do_as_student, :all %>
+      <%= link_to "Back", courses_path %>
+  <% else %>
+      <%= link_to 'Back', enrollments_path %>
+  <% end %>
+</div>
