@@ -14,11 +14,13 @@ class EnrollmentsController < ApplicationController
   def show
   end
 
+  # GET /enrollments/index_instructor
   def index_instructor
     @user_id = current_user
     @enrollments = Enrollment.all
   end
 
+  # GET /enrollments/index_student
   def index_student
     @user_id = current_user
     @enrollments = Enrollment.all
@@ -30,9 +32,11 @@ class EnrollmentsController < ApplicationController
     @courses= Course.all
     @users = User.all
     @course_id = session[:current_course]
+    # select course with course ID
     @course_find = @courses.where('"courses"."id" = ?', "#{@course_id}")
     @course_find.each do |course|
       @instructor_name = course.Instructor
+      # select instructor with instructor NAME
       @user_find = @users.where('"users"."name" = ?', "#{@instructor_name}")
       @user_find.each do |user|
         @instructor_id = user.id
