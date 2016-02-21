@@ -9,9 +9,9 @@ one:
   admission: false
 
 two:
-  student_id: 1
-  instructor_id: 1
-  course_id: 1
+  student_id: 2
+  instructor_id: 2
+  course_id: 2
   grade: 1.5
-  material: MyText
+  material: 2
   admission: false

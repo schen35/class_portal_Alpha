@@ -10,10 +10,10 @@ one:
   Status: false
 
 two:
-  Course_num: 1
-  Title: MyString
-  Description: MyText
-  Instructor: MyString
-  Start_date: 2016-02-16
-  End_date: 2016-02-16
+  Course_num: 2
+  Title: MyString2
+  Description: MyText2
+  Instructor: MyString2
+  Start_date: 2016-02-17
+  End_date: 2016-02-17
   Status: false
