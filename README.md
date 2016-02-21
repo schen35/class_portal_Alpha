@@ -35,10 +35,14 @@ SuperAdmin
 | -------------      | ------------- |
 | test_s1@email.com  |    12345678   |
 
------------
+-------------
+Test cases for this project
+To be updated.
+
+-------------
 
 Unrosolved issues:
-  1. Enrollment function is not ideal, but it's functional. I know it's a pain in the a$$, but it's the best we can do now. Sorry
+  1. Enrollment function is not ideal, you need to get into show to output course detail in order to get enroll, but it's functional. I know it's a pain in the a$$, but it's the best we can do now. Sorry
   2. There might be some problems with authorizations, such as current admin could delete himself. Working on it.
   3. If something weird is going on, don't be afraid, please let us know so it won't suprise you AGAIN.
 
