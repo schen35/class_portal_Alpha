@@ -36,7 +36,18 @@ SuperAdmin
 | test_s1@email.com  |    12345678   |
 
 -----------
+Test cases:
+1. Must have user name, email and password to sign in and sign up for an account.
+2. Name, email and password are limited in length
+3. Name,email are all unique and case insensitive.
+3. @ will be detected to validate an email address
+4.(to be added) admin should be able to delete, approve a student
+5.(to be added) students can view, enroll, and drop classes
+6.(to be added) classes should have an instructor and valid enrollment date.
 
+
+
+-----------
 Unrosolved issues:
   1. Enrollment function is not ideal, but it's functional. I know it's a pain in the a$$, but it's the best we can do now. Sorry
   2. There might be some problems with authorizations, such as current admin could delete himself. Working on it.
