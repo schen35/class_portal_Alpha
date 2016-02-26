@@ -2,9 +2,9 @@
   <div class="row col-md-4 col-md-offset-4" style="left: 0%; top: 70px;">
     <p id="notice"><%= notice %></p>
 
-    <h1>Listing Users</h1>
+    <h1>Manage Users</h1>
 
-    <table>
+    <table  class="table table-condensed" border="4">
       <thead>
       <tr>
         <th>E-Mail</th>
@@ -15,16 +15,17 @@
       </thead>
 
       <tbody>
-          <% @available_users = @users.find_by_sql('SELECT * FROM users WHERE role=0 OR role=1 OR role=2')%>
+
           <% @users.each do |user| %>
           <tr>
+           <% if (user.role != "superadmin") %>
             <td><%= user.email %></td>
             <td><%= user.name %></td>
             <td><%= user.role %></td>
 
             <td><%= link_to 'Delete', user , method: :delete %></td>
-
-          </tr>
+            <% end %>
+            </tr>
       <% end %>
       </tbody>
     </table>

@@ -1,19 +1,33 @@
 <div class="container row col-md-4 col-md-offset-4" style="left: 0%; top: 70px;">
 <p id="notice"><%= notice %></p>
-
+  <% @studentID = @enrollment.student_id %>
+  <% @instructorID = @enrollment.instructor_id %>
+  <% @courseID = @enrollment.course_id %>
+  <% @course_find = @courses.where('"courses"."id" = ?', "#{@courseID}")%>
+  <% @course_find.each do |course| %>
+      <% @course_name = course.Title %>
+  <% end %>
+  <% @instructor_find = @users.where('"users"."id" = ?', "#{@instructorID}")%>
+  <% @instructor_find.each do |instructor| %>
+      <% @instructor_name = instructor.name %>
+  <% end %>
+  <% @student_find = @users.where('"users"."id" = ?', "#{@studentID}")%>
+  <% @student_find.each do |student| %>
+      <% @student_name = student.name %>
+  <% end %>
 <p>
-  <strong>Student id:</strong>
-  <%= @enrollment.student_id %>
+  <strong>Student:</strong>
+  <%= @student_name %>
 </p>
 
 <p>
-  <strong>Instructor id:</strong>
-  <%= @enrollment.instructor_id %>
+  <strong>Instructor:</strong>
+  <%= @instructor_name %>
 </p>
 
 <p>
-  <strong>Course id:</strong>
-  <%= @enrollment.course_id %>
+  <strong>Course:</strong>
+  <%= @course_name %>
 </p>
 
 <p>
@@ -21,17 +35,15 @@
   <%= @enrollment.grade %>
 </p>
 
-<p>
-  <strong>Material:</strong>
-  <%= @enrollment.material %>
-</p>
 
 <p>
   <strong>Admission:</strong>
   <%= @enrollment.admission %>
 </p>
 
+  <% if cannot? :do_as_student, :all %>
   <%= link_to 'Edit', edit_enrollment_path(@enrollment) %>
+  <% end %>
   <% if can? :do_as_student, :all %>
       <%= link_to "Back", courses_path %>
   <% else %>

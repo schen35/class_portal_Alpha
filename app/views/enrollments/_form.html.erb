@@ -14,51 +14,58 @@
   <% end %>
       <fieldset>
     <% if can? :do_as_student, :all %>
-    <% #@course_ID = params[:course_id] %>
-        <% #@user_ID = params[:user_id] %>
         <div class="field">
-          <%= f.label :student_id %><br>
-          <%= f.number_field :student_id, :value => @user_id.id %>
+          <%= f.label :student_id, :style =>'visibility:hidden' %><br>
+          <%= f.number_field :student_id, :value => @user_id.id, :readonly => true, :style =>'visibility:hidden' %>
         </div>
         <div class="field">
-          <%= f.label :instructor_id %><br>
-          <%= f.number_field :instructor_id, :value => @instructor_id %>
+          <%= f.label :instructor_id, :style =>'visibility:hidden' %><br>
+          <%= f.number_field :instructor_id, :value => @instructor_id, :readonly => true, :style =>'visibility:hidden' %>
 
         </div>
         <div class="field">
-          <%= f.label :course_id %><br>
-          <%= f.number_field :course_id, :value => @course_id %>
+          <%= f.label :course_id, :style =>'visibility:hidden' %><br>
+          <%= f.number_field :course_id, :value => @course_id, :readonly => true, :style =>'visibility:hidden' %>
         </div>
     <% else %>
 
   <div class="field">
     <%= f.label :student_id %><br>
-    <%= f.number_field :student_id %>
+    <%= f.collection_select :student_id, @students, :id, :name,{}, class: 'form-control'  %>
+
   </div>
   <div class="field">
     <%= f.label :instructor_id %><br>
-    <%= f.number_field :instructor_id %>
+    <%= f.collection_select :instructor_id, @instructors, :id, :name,{}, class: 'form-control'  %>
+
+
   </div>
   <div class="field">
     <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
-  </div>
+    <%= f.collection_select :course_id, @courses, :id, :Title,{}, class: 'form-control'  %>
+    </div>
+
  <div class="field">
     <%= f.label :grade %><br>
     <%= f.text_field :grade %>
   </div>
-  <div class="field">
-    <%= f.label :material %><br>
-    <%= f.text_area :material %>
-  </div>
-  <div class="field">
-    <%= f.label :admission %><br>
-    <%= f.check_box :admission %>
-  </div>
+
 <% end %>
-        </fieldset>
+<% if can? :do_as_student, :all %>
+   <div class="field">
+     <%= f.label :admission, :style =>'visibility:hidden' %><br>
+     <%= f.check_box :admission, :value => FALSE, :readonly => true, :style =>'visibility:hidden' %>
+   </div>
+       <% else %>
+       <div class="field">
+         <%= f.label :admission %><br>
+         <%= f.check_box :admission %>
+       </div>
+ <% end %>
+
+      </fieldset>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Confirm Enrollment",class: "btn"  %>
   </div>
     <div class="filed">
     </div>

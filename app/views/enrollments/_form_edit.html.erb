@@ -1,0 +1,40 @@
+<div class="container row col-lg-12 col-md-12 col-sm-12" >
+<%= form_for(@enrollment) do |f| %>
+
+  <% if @enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+      <% @enrollment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <fieldset>
+
+
+        <div class="field">
+          <%= f.label :grade %><br>
+          <%= f.text_field :grade %>
+        </div>
+        <br>
+
+       <div class="field">
+         <%= f.check_box :admission %>
+         <%= f.label :admission, :value => "Approve request"%>
+         (Check on this to approve student enrollment request.)
+
+       </div>
+        <br>
+
+      </fieldset>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+    <div class="filed">
+    </div>
+
+</div>
+  <% end %>

@@ -36,6 +36,12 @@
   <strong>Status:</strong>
   <%= @course.Status %>
 </p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @course.Material %>
+</p>
+
     <% if ((can? :do_as_admin, :all) || (can? :do_as_superadmin, :all))%>
 <%= link_to 'Edit', edit_course_path(@course) %> |
     <% end %>

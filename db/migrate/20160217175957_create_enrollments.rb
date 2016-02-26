@@ -5,7 +5,6 @@ class CreateEnrollments < ActiveRecord::Migration
       t.integer :instructor_id
       t.integer :course_id
       t.float :grade
-      t.text :material
       t.boolean :admission
 
       t.timestamps null: false

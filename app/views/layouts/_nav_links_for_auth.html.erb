@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+  <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=> :delete %></li>
 <% else %>
   <li><%= link_to 'Sign in', new_user_session_path %></li>
@@ -10,24 +10,19 @@
 <% end %>
 <% if user_signed_in? %>
 
-    <% if can? :do_as_admin, :all %>
+    <% if (can? :do_as_admin, :all)||(can? :do_as_superadmin, :all) %>
 
-        <li><%#= link_to "Do as admin", admins_path %></li>
-
-        <li><%= link_to "Manage admins & users", superadmins_path %></li>
-
-    <% end %>
-    <% if can? :do_as_instructor, :all %>
-        <li><%= link_to "List course", courses_path %></li>
-        <li><%= link_to "Check Enrollment", index_instructor_path %></li>
-    <% end %>
-    <% if can? :do_as_student, :all %>
-        <li><%= link_to "Search course", courses_path %></li>
-        <li><%= link_to "Check Enrollment", index_student_path %></li>
-    <% end %>
-    <% if can? :do_as_superadmin, :all %>
         <li><%= link_to "Manage admins & users", superadmins_path %></li>
         <li><%= link_to "Manage courses", courses_path %></li>
         <li><%= link_to "Manage enrollment", enrollments_path %></li>
     <% end %>
+    <% if can? :do_as_instructor, :all %>
+        <li><%= link_to "Manage course", courses_path %></li>
+        <li><%= link_to "Manage Enrollment", index_instructor_path %></li>
+    <% end %>
+    <% if can? :do_as_student, :all %>
+        <li><%= link_to "Search course", courses_path %></li>
+        <li><%= link_to "Manage Enrollment", index_student_path %></li>
+    <% end %>
+
 <% end %>
