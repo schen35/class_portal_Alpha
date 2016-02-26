@@ -22,37 +22,53 @@
       <th>End date</th>
       <th>Status</th>
       <th>Material</th>
+      <% if can? :do_as_instructor, :all %>
       <th colspan="2"></th>
+      <% else if can? :do_as_student, :all%>
+          <th colspan="1"></th>
+          <% else %>
+          <th colspan="3"></th>
+          <% end %>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <% if (course.Instructor == @user.name) %>
-        <td><%= course.Course_num %></td>
-        <td><%= course.Title %></td>
-        <td><%= course.Description %></td>
-        <td><%= course.Instructor %></td>
-        <td><%= course.Start_date %></td>
-        <td><%= course.End_date %></td>
-        <td><%= course.Status %></td>
-        <td><%= course.Material %></td>
-        <% if can? :do_as_student, :all %>
-            <td><%= link_to 'Check Detail', course %></td>
-        <% end %>
         <% if can? :do_as_instructor, :all %>
-            <% @course_id = course.id  %>
-            <td><%= link_to 'Show', course %></td>
-        <% end %>
-
-        <% if ((can? :do_as_instructor, :all)||(can? :do_as_admin, :all) )%>
+            <% if (course.Instructor == @user.name) %>
+                <td><%= course.Course_num %></td>
+                <td><%= course.Title %></td>
+                <td><%= course.Description %></td>
+                <td><%= course.Instructor %></td>
+                <td><%= course.Start_date %></td>
+                <td><%= course.End_date %></td>
+                <td><%= course.Status %></td>
+                <td><%= course.Material %></td>
+                <% @course_id = course.id  %>
+                <td><%= link_to 'Show', course %></td>
                 <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <% end %>
-        <% if can? :do_as_admin, :all %>
+            <% end %>
+        <% else %>
+            <td><%= course.Course_num %></td>
+            <td><%= course.Title %></td>
+            <td><%= course.Description %></td>
+            <td><%= course.Instructor %></td>
+            <td><%= course.Start_date %></td>
+            <td><%= course.End_date %></td>
+            <td><%= course.Status %></td>
+            <td><%= course.Material %></td>
+            <% if can? :do_as_student, :all %>
+                <td><%= link_to 'Check Detail', course %></td>
+            <% end %>
 
-            <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+            <% if can? :do_as_admin, :all %>
+                <% @course_id = course.id  %>
+                <td><%= link_to 'Show', course %></td>
+                <td><%= link_to 'Edit', edit_course_path(course) %></td>
+                <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
             <% end %>
       </tr>
 
