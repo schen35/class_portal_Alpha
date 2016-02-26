@@ -14,34 +14,39 @@
         <fieldset>
   <div class="field">
     <%= f.label :Course_num %><br>
-    <%= f.number_field :Course_num %>
+    <%= f.number_field :Course_num , class: 'form-control'%>
   </div>
   <div class="field">
     <%= f.label :Title %><br>
-    <%= f.text_field :Title %>
+    <%= f.text_field :Title , class: 'form-control'%>
   </div>
   <div class="field">
     <%= f.label :Description %><br>
-    <%= f.text_area :Description %>
-    <!-- <%= f.text_area :Description, :value =>"something" %>-->
+    <%= f.text_area :Description , class: 'form-control'%>
+
   </div>
           </fieldset>
         <fieldset>
   <div class="field">
     <%= f.label :Instructor %><br>
-    <%= f.text_field :Instructor %>
+    <%= f.collection_select :Instructor, @instructors, :name, :name,{}, class: 'form-control'  %>
+
   </div>
   <div class="field">
     <%= f.label :Start_date %><br>
-    <%= f.date_select :Start_date %>
+    <%= f.date_select :Start_date , class: 'form-control'%>
   </div>
   <div class="field">
     <%= f.label :End_date %><br>
-    <%= f.date_select :End_date %>
+    <%= f.date_select :End_date , class: 'form-control'%>
   </div>
   <div class="field">
-    <%= f.label :Status %>
-    <%= f.check_box :Status %>
+    <%= f.label :Status %><br>
+    <%= f.check_box :Status%>
+  </div>
+  <div class="field">
+    <%= f.label :Material %><br>
+    <%= f.text_area :Material, class: 'form-control' %>
   </div>
           </fieldset>
   <div class="actions">

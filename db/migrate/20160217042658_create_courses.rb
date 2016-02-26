@@ -9,6 +9,7 @@ class CreateCourses < ActiveRecord::Migration
       t.date :Start_date
       t.date :End_date
       t.boolean :Status
+      t.text :Material
 
       t.timestamps null: false
     end

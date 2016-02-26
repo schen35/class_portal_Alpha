@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.search(params[:search])
     @user_id = session[:user_id]
-    puts @user_id
+    @user=User.find(current_user)
   end
 
   # GET /courses/1
@@ -19,10 +19,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @instructors = User.find_by_sql('SELECT * FROM users WHERE role=1')
   end
 
   # GET /courses/1/edit
   def edit
+    @instructors = User.find_by_sql('SELECT * FROM users WHERE role=1')
   end
 
   # POST /courses

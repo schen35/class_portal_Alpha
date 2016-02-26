@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160217175957) do
     t.date     "Start_date"
     t.date     "End_date"
     t.boolean  "Status"
+    t.text     "Material"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
@@ -36,7 +37,6 @@ ActiveRecord::Schema.define(version: 20160217175957) do
     t.integer  "instructor_id"
     t.integer  "course_id"
     t.float    "grade"
-    t.text     "material"
     t.boolean  "admission"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

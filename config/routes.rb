@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   get 'index_instructor' => 'enrollments#index_instructor'
    get 'index_student' => 'enrollments#index_student'
 
-  get '/enrollments', to: 'enrollments#new', as: 'student_enrollment'
-
+  get 'student_enrollment', to: 'enrollments#new'
 
   devise_scope :user do
     get '/u/sign_out' => 'devise/sessions#destroy'
