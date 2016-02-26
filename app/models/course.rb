@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
-  has_and_belongs_to_many :enrollments,association_foreign_key: :course_id
-  has_many :user, through: :enrollments
+  has_many :enrollments
+  has_many :user
 
   # search course with course title
   def self.search(search)
