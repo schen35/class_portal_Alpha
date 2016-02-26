@@ -137,6 +137,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="db:create: class_portal_Alpha" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="class_portal_Alpha" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -258,6 +259,8 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <method />
     </configuration>
+=======
+>>>>>>> schen35
   </component>
   <component name="NewModuleRootManager">
 <<<<<<< HEAD

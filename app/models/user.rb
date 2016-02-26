@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_and_belongs_to_many :enrollments, association_foreign_key: :user_id
-  has_many :courses, through: :enrollments
+  has_many :enrollments
+  has_many :courses
 
   validates_presence_of  :password,length: { minimum: 6 }
 
