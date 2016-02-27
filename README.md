@@ -36,6 +36,14 @@ SuperAdmin
 | test_s1@email.com  |    12345678   |
 
 -------------
+Instructions:
+If you want to request enrollment in a certain course, you should click on show to check course detail to find function for request enroll, and in the following page clicked on confirm.
+
+Please don't modify the password for pre-existing user's password or email. Thank you.
+
+When adding student to course, please make sure the course is taught by the instructor for the course, otherwise it won't be a successful edit, the student won't be able to see it.
+
+-------------
 Test cases for this project
 To be updated.
 
