@@ -36,9 +36,10 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/new
   def new
-    @courses= Course.all
+
     @instructors = User.find_by_sql('SELECT * FROM users WHERE role=1')
     @students = User.find_by_sql('SELECT * FROM users WHERE role=0')
+    @courses= Course.all
 
     if can? :do_as_student, :all
     @users = User.all
